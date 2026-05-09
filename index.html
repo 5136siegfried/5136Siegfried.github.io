@@ -1,113 +1,623 @@
----
-permalink: /
----
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% if site.title %}{{ site.title }}{% else %}{{ site.name }}{% endif %}</title>
-  <meta name="JekyllTheme" content="Fuse Core by Thomas Jensen" />
-  {% if site.robots.description %}
-  <meta name="Description" content="{{ site.robots.description }}" />{% endif %}
-  {% if site.robots.keywords %}
-  <meta name="Keywords" content="{{ site.robots.keywords }}" />{% endif %}
-  {% if site.robots.crawl %}
-  <meta name="Robots" content="{{ site.robots.crawl }}" />{% endif %}
-  <meta name="HandheldFriendly" content="true" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% if site.url %}
-  <link rel="canonical" href="{{ site.url }}">{% endif %}
-  {% include analytics.html %}
+  <title>Siegfried Sekkai — DevOps & SRE</title>
+  <meta name="description" content="Portfolio DevOps / SRE — infrastructure, fiabilité, outils terrain.">
+  <meta name="keywords" content="DevOps, SRE, Cloud, AWS, GCP, Azure, Docker, Ansible, Kubernetes, Terraform">
+  <meta property="og:title" content="Siegfried Sekkai — DevOps & SRE">
+  <meta property="og:description" content="Portfolio DevOps / SRE — infrastructure, fiabilité, outils terrain.">
+  <meta property="og:url" content="https://5136.fr">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://5136.fr">
 
-  <!-- favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/images/favicons/favicon-16x16.png">
-  <link rel="manifest" href="{{ site.baseurl }}/images/favicons/site.webmanifest">
-  <link rel="mask-icon" href="{{ site.baseurl }}/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicons/favicon.ico">
-  <meta name="msapplication-TileColor" content="#00a300">
-  <meta name="msapplication-config" content="{{ site.baseurl }}/images/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  {% comment %} Bootstrap should be the first stylesheet {% endcomment %}
-  <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk">
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/theme.css">
-  <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin">
+  <style>
+    :root {
+      --bg:         #f0ede7;
+      --text:       #1d1b17;
+      --text-2:     #6e6860;
+      --border:     #d5d0c8;
+      --accent:     #8b5e3c;
+      --tag-border: #c5bfb5;
+    }
 
-  {% if site.ga and site.ga.cookieconsent %}
-  <!-- Cookie Consent popup to comply with EU cookie law -->
-  <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" integrity="sha384-nA7usz4cMKo7RylsCZnpe0V9qx5X7sa011o0OrDzrKUE7Ero1gB48Fjaw6SFxVZe" />
-  <script async crossorigin="anonymous" data-cfasync="false" src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" integrity="sha384-xLPjH6nqG4p/2mu1KJ1t+4KqcvkyXVwBucQtyGK65lDNfKzECxGY/QEYWR+Wompr"></script>
-  <script>
-    window.addEventListener("load", function() {
-      window.cookieconsent.initialise({
-        "cookie": {
-          "expiryDays": 730
-        },
-        "palette": {
-          "popup": {
-            "background": "#383b75"
-          },
-          "button": {
-            "background": "#f1d600"
-          }
-        },
-        "theme": "classic"
-      });
-    });
-  </script>
-  {% endif %}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:         #1a1816;
+        --text:       #e6e1d9;
+        --text-2:     #8c8479;
+        --border:     #2e2b26;
+        --accent:     #c4895a;
+        --tag-border: #3a3731;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Figtree', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      header        { animation: fadeUp 0.5s ease both; }
+      main section  { animation: fadeUp 0.5s ease both; }
+      main section:nth-child(1) { animation-delay: 0.08s; }
+      main section:nth-child(2) { animation-delay: 0.14s; }
+      main section:nth-child(3) { animation-delay: 0.20s; }
+      main section:nth-child(4) { animation-delay: 0.26s; }
+      main section:nth-child(5) { animation-delay: 0.32s; }
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .name {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(2.5rem, 7vw, 3.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+    }
+
+    .tagline {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+
+    .bio {
+      font-size: 1.05rem;
+      max-width: 520px;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-2);
+      margin-bottom: 2rem;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #5b9e6e;
+      flex-shrink: 0;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.4rem;
+      list-style: none;
+    }
+
+    .links a {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .links a:hover { color: var(--accent); }
+
+    /* ── Sections ── */
+    section { margin-bottom: 3.5rem; }
+
+    .section-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--text-2);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    /* ── Project list ── */
+    .project-list { list-style: none; }
+
+    .project {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project:first-child { border-top: 1px solid var(--border); }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-name {
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.975rem;
+      font-weight: 500;
+    }
+
+    .project-name a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .project-name a:hover { color: var(--accent); }
+
+    .badge-main {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 1px 5px;
+      border-radius: 2px;
+      opacity: 0.9;
+    }
+
+    .badge-live {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-2);
+      border: 1px solid var(--tag-border);
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      margin-bottom: 0.65rem;
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-2);
+      border: 1px solid var(--tag-border);
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+
+    /* ── Stack ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1.5rem 2.5rem;
+    }
+
+    .skill-group-label {
+      font-size: 0.68rem;
+      color: var(--text-2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+    }
+
+    .skill-items {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 3.5rem;
+      font-size: 0.78rem;
+      color: var(--text-2);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer a {
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      header { padding: 3rem 0 2.5rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
+    }
+  </style>
 </head>
+<body>
+  <div class="container">
 
-<body class="fullscreen-background">
-  <! -- Photo credit: Philippe Guillaume -->
+    <header>
+      <h1 class="name">Siegfried Sekkai</h1>
+      <p class="tagline">DevOps · SRE · Cloud</p>
+      <p class="bio">
+        Je construis des infrastructures fiables, des pipelines maintenables,
+        et des outils qui servent des usages réels — en entreprise comme sur le terrain.
+        Multi-cloud, sécurité, automatisation.
+      </p>
+      <p class="availability">
+        <span class="dot"></span>
+        Disponible pour un CDI Cloud Engineer / DevOps / SRE — Bordeaux & remote
+      </p>
+      <ul class="links">
+        <li><a href="https://linkedin.com/in/siegfried-sekkai/" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/5136siegfried" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:siegfried.sekkai@gmail.com">Email</a></li>
+        <li><a href="https://csor.fr" rel="noopener">CSOR</a></li>
+      </ul>
+    </header>
 
-    <div class="glass-pane">
-      <div class="container fuse-core-content pb-4">
+    <main>
 
-        <div class="row pt-sm-4">
-          <div class="col text-center"><img id="avatar" class="my-3 my-sm-4" alt="{{ site.name }}" src="{% if site.avatar %}{% if site.avatar contains '://' %}{{ site.avatar }}{%
-        else %}{{ site.baseurl }}/{{ site.avatar }}{% endif %}{%
-        else %}{{ site.baseurl }}/images/avatar.svg{% endif %}"></div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <h1 class="text-center font-weight-bold">{{ site.name }}</h1>
-            {% if site.subtitle %}<h3 class="text-center font-weight-light">{{ site.subtitle }}</h3>{% endif %}
+      <!-- Infrastructure & SRE -->
+      <section aria-labelledby="label-sre">
+        <p class="section-label" id="label-sre">Infrastructure &amp; SRE</p>
+        <ul class="project-list">
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/SRE-good-practice" target="_blank" rel="noopener">SRE Good Practice</a>
+              </span>
+              <span class="badge-main">principal</span>
+            </div>
+            <p class="project-desc">
+              Mon référentiel de pratiques d'ingénierie de fiabilité — SLO/SLI/SLA, runbooks,
+              post-mortems, observabilité, culture on-call. En construction continue, usage réel.
+            </p>
+            <div class="tags">
+              <span class="tag">SRE</span>
+              <span class="tag">Runbook</span>
+              <span class="tag">Observabilité</span>
+              <span class="tag">Documentation</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/vps-gitops-ovh" target="_blank" rel="noopener">VPS GitOps OVH</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Runbook de sécurisation d'un VPS OVH à visée production — nginx reverse proxy,
+              Docker, TLS automatisé, hardening SSH, pipeline GitOps minimaliste.
+            </p>
+            <div class="tags">
+              <span class="tag">Nginx</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Security</span>
+              <span class="tag">GitOps</span>
+              <span class="tag">OVH</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/distributed-jmeter-ansible" target="_blank" rel="noopener">Distributed JMeter Ansible</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Runbook Ansible pour déployer un cluster JMeter distribué — tests de charge
+              reproductibles, orchestration multi-nœuds, rapports automatisés.
+            </p>
+            <div class="tags">
+              <span class="tag">Ansible</span>
+              <span class="tag">JMeter</span>
+              <span class="tag">Load testing</span>
+              <span class="tag">Distributed</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/malus-maladat" target="_blank" rel="noopener">Malus Maladat</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Inventaire et audit de ressources AWS — cartographie d'environnement,
+              détection de drift, conformité et coûts.
+            </p>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Inventaire</span>
+              <span class="tag">Compliance</span>
+              <span class="tag">FinOps</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- Outils -->
+      <section aria-labelledby="label-tools">
+        <p class="section-label" id="label-tools">Outils &amp; plateformes</p>
+        <ul class="project-list">
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/cv-terminal" target="_blank" rel="noopener">CV Terminal</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Mon CV sous forme d'invite de commande interactive — parce qu'un PDF c'est fade.
+            </p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">CLI</span>
+              <span class="tag">Interactive</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/latex-cv" target="_blank" rel="noopener">LaTeX CV</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Générateur de CV en LaTeX — template modulaire, compilable en CI,
+              sortie PDF propre et versionnée.
+            </p>
+            <div class="tags">
+              <span class="tag">LaTeX</span>
+              <span class="tag">PDF</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/jobtracker-devops" target="_blank" rel="noopener">Job Tracker DevOps</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Dashboard de suivi de prospection freelance et recherche CDI —
+              statuts, relances, pipeline de candidatures.
+            </p>
+            <div class="tags">
+              <span class="tag">Dashboard</span>
+              <span class="tag">Tracking</span>
+              <span class="tag">Freelance</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://chrono.5136.fr" target="_blank" rel="noopener">Chrono</a>
+              </span>
+              <span class="badge-live">live</span>
+            </div>
+            <p class="project-desc">
+              Timer minimaliste pour le sport et les sessions de concentration —
+              interval, Pomodoro, compte à rebours.
+            </p>
+            <div class="tags">
+              <span class="tag">Timer</span>
+              <span class="tag">Web app</span>
+              <span class="tag">Productivité</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- Action sociale -->
+      <section aria-labelledby="label-social">
+        <p class="section-label" id="label-social">Action sociale &amp; terrain</p>
+        <ul class="project-list">
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/come-together" target="_blank" rel="noopener">Come Together</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Application React + MongoDB pour la gestion de maraudes et le suivi médical de terrain —
+              fiches personnes, historique de contact, alertes.
+            </p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Street outreach</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://maraude.5136.fr" target="_blank" rel="noopener">Maraude Dashboard</a>
+              </span>
+              <span class="badge-live">live</span>
+            </div>
+            <p class="project-desc">
+              Dashboard de pilotage des opérations de rue — planning, équipes,
+              statistiques terrain, coordination logistique.
+            </p>
+            <div class="tags">
+              <span class="tag">Dashboard</span>
+              <span class="tag">Associatif</span>
+              <span class="tag">Terrain</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://csor.fr" target="_blank" rel="noopener">CSOR</a>
+              </span>
+              <span class="badge-live">live</span>
+            </div>
+            <p class="project-desc">
+              Site de l'association CSOR — street outreach, ressources, coordination bénévoles.
+            </p>
+            <div class="tags">
+              <span class="tag">Associatif</span>
+              <span class="tag">Street outreach</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/csor-gestion" target="_blank" rel="noopener">CSOR Gestion</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Documentation de gouvernance pour une association horizontale —
+              processus décisionnels, rôles, procédures sans hiérarchie formelle.
+            </p>
+            <div class="tags">
+              <span class="tag">Gouvernance</span>
+              <span class="tag">Docs</span>
+              <span class="tag">Horizontalité</span>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/hestia" target="_blank" rel="noopener">Hestia</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Ressources organisées contre les expulsions — droit au logement,
+              veille juridique, protocoles d'urgence et d'orientation.
+            </p>
+            <div class="tags">
+              <span class="tag">Droit au logement</span>
+              <span class="tag">Ressources</span>
+              <span class="tag">Urgence</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- Expérimental -->
+      <section aria-labelledby="label-exp">
+        <p class="section-label" id="label-exp">Expérimental</p>
+        <ul class="project-list">
+
+          <li class="project">
+            <div class="project-header">
+              <span class="project-name">
+                <a href="https://github.com/5136siegfried/chess-py" target="_blank" rel="noopener">Chess-py</a>
+              </span>
+            </div>
+            <p class="project-desc">
+              Serveur d'échecs en Python — moteur de jeu, API WebSocket,
+              interface minimaliste jouable en réseau local.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">WebSocket</span>
+              <span class="tag">Jeu</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- Stack -->
+      <section aria-labelledby="label-stack">
+        <p class="section-label" id="label-stack">Stack</p>
+        <div class="skills-grid">
+          <div>
+            <p class="skill-group-label">Cloud</p>
+            <p class="skill-items">AWS · GCP · Azure<br>OVH · Terraform · IaC</p>
+          </div>
+          <div>
+            <p class="skill-group-label">Containers &amp; CI</p>
+            <p class="skill-items">Docker · Kubernetes<br>GitHub Actions · GitLab CI</p>
+          </div>
+          <div>
+            <p class="skill-group-label">Observabilité</p>
+            <p class="skill-items">Prometheus · Grafana<br>ELK · Datadog</p>
+          </div>
+          <div>
+            <p class="skill-group-label">Code &amp; scripts</p>
+            <p class="skill-items">Bash · Python · Ansible<br>C# · JavaScript</p>
+          </div>
+          <div>
+            <p class="skill-group-label">Sécurité</p>
+            <p class="skill-items">Google Cybersecurity Cert.<br>OWASP · SSH hardening<br>Audit &amp; conformité</p>
+          </div>
+          <div>
+            <p class="skill-group-label">Langues</p>
+            <p class="skill-items">Français · Anglais<br>Allemand · Espagnol (B1)</p>
           </div>
         </div>
+      </section>
 
-        <div class="row justify-content-center links pt-1 pt-sm-2">
-          {% for hash in site.links %}{% for linkInfo in hash %}{% if linkInfo[1].show %}
-          <div class="col-xs-12 col-sm-2 col-lg-1 px-3 px-sm-0 mt-2 mt-sm-3 text-sm-center"><a href="{{ linkInfo[1].href }}" {% if site.ga %} onclick="trackOutboundLink('{{ linkInfo[1].name }}', '{{ linkInfo[1].href }}'); return false;"
-              {% endif %}><i class="{{ linkInfo[1].icon }} fa-fw"></i>
-              <span class="d-inline d-sm-none">{{ linkInfo[1].name }}</span></a></div>
-          {% endif %}{% endfor %}{% endfor %}
-        </div>
-
-        {% if site.extra_html %}
-        <div class="row justify-content-center">
-          <div class="col mt-3 text-sm-center fuse-core-extra">{{ site.extra_html }}</div>
-        </div>
-        {% endif %}
-
-      </div>
-    </div>
+    </main>
 
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">Built on the <a href="https://github.com/tsjensen/fuse-core">Fuse Core</a>
-            Jekyll theme.</div>
-        </div>
-      </div>
+      <span>Siegfried Sekkai · Mérignac, Gironde</span>
+      <span>
+        <a href="https://github.com/5136siegfried/5136Siegfried.github.io" rel="noopener">Source</a>
+        &nbsp;·&nbsp; 5136.fr
+      </span>
     </footer>
 
+  </div>
 </body>
-
 </html>
