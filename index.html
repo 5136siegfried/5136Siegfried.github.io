@@ -3,55 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
   <title>Siegfried Sekkai — DevOps & SRE</title>
-  <meta name="description" content="Portfolio DevOps / SRE — infrastructure, fiabilité, outils terrain. Disponible pour un CDI Cloud Engineer.">
+  <meta name="description" content="Ingénieur DevOps / SRE — infrastructure fiable, culture blameless, engagement terrain. Disponible CDI Bordeaux & remote.">
   <meta property="og:title" content="Siegfried Sekkai — DevOps & SRE">
-  <meta property="og:description" content="Portfolio DevOps / SRE — infrastructure, fiabilité, outils terrain.">
+  <meta property="og:description" content="Ingénieur DevOps / SRE — infrastructure fiable, culture blameless, engagement terrain.">
   <meta property="og:url" content="https://5136.fr">
-  <meta property="og:type" content="website">
   <meta property="og:image" content="https://5136.fr/images/photo.png">
   <link rel="canonical" href="https://5136.fr">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── Tokens ─── */
+    /* ── Tokens ── */
     :root {
-      --bg:          #f5f1e8;
-      --bg-subtle:   #ede9df;
-      --text:        #1c1a15;
-      --text-2:      #5c5548;
-      --border:      #dbd5c8;
-      --accent:      #4a5e4a;
-      --accent-soft: #6b826b;
-      --dot:         #5b9e6e;
+      --bg:       #f5f1e8;
+      --text:     #1c1a15;
+      --text-2:   #6a6256;
+      --text-3:   #9a9188;
+      --border:   #ddd8ce;
+      --accent:   #4a5e4a;
+      --accent-l: #6b826b;
+      --dot:      #5b9e6e;
+      --serif:    'Shippori Mincho', serif;
+      --sans:     'Figtree', sans-serif;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:          #111009;
-        --bg-subtle:   #191710;
-        --text:        #e4dfd4;
-        --text-2:      #857d70;
-        --border:      #272420;
-        --accent:      #7a9e7a;
-        --accent-soft: #5a7a5a;
-        --dot:         #5b9e6e;
-      }
-    }
-
-    /* ─── Reset ─── */
+    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Figtree', sans-serif;
+      font-family: var(--sans);
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -61,20 +50,21 @@
       padding: 0 2rem;
     }
 
-    /* ─── Animations ─── */
+    /* ── Animations ── */
     @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .hero                 { animation: rise 0.6s ease both; }
-      .block                { animation: rise 0.6s ease both; }
-      .block:nth-child(1)   { animation-delay: 0.08s; }
-      .block:nth-child(2)   { animation-delay: 0.14s; }
-      .block:nth-child(3)   { animation-delay: 0.20s; }
-      .block:nth-child(4)   { animation-delay: 0.26s; }
-      .block:nth-child(5)   { animation-delay: 0.32s; }
+      .hero                { animation: rise 0.65s ease both; }
+      .block               { animation: rise 0.65s ease both; }
+      .block:nth-child(1)  { animation-delay: 0.08s; }
+      .block:nth-child(2)  { animation-delay: 0.15s; }
+      .block:nth-child(3)  { animation-delay: 0.22s; }
+      .block:nth-child(4)  { animation-delay: 0.29s; }
+      .block:nth-child(5)  { animation-delay: 0.36s; }
+      .block:nth-child(6)  { animation-delay: 0.43s; }
     }
 
     /* ══════════════════════════════
@@ -82,14 +72,14 @@
     ══════════════════════════════ */
     .hero {
       text-align: center;
-      padding: 5rem 0 3.5rem;
+      padding: 5.5rem 0 3.5rem;
       border-bottom: 1px solid var(--border);
       margin-bottom: 4rem;
     }
 
     .avatar {
-      width: 100px;
-      height: 100px;
+      width: 108px;
+      height: 108px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
@@ -99,29 +89,28 @@
     }
 
     .hero-name {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(3rem, 9vw, 5rem);
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 10vw, 5.5rem);
       font-weight: 600;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
       line-height: 1;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       color: var(--text);
     }
 
     .hero-role {
-      font-family: 'Figtree', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--text-2);
+      color: var(--text-3);
       font-weight: 400;
-      margin-bottom: 2rem;
+      margin-bottom: 1.85rem;
     }
 
     .hero-intro {
       font-size: 1.05rem;
       color: var(--text-2);
-      max-width: 400px;
+      max-width: 420px;
       margin: 0 auto 1.25rem;
       line-height: 1.85;
       text-wrap: pretty;
@@ -131,35 +120,35 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--accent);
-      margin-bottom: 2.25rem;
       font-weight: 500;
+      margin-bottom: 2rem;
     }
 
     .dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--dot);
       flex-shrink: 0;
     }
 
-    .hero-network-label {
-      font-size: 0.65rem;
+    .hero-links-label {
+      font-size: 0.62rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-2);
-      margin-bottom: 0.75rem;
-      opacity: 0.6;
+      letter-spacing: 0.16em;
+      color: var(--text-3);
+      margin-bottom: 0.65rem;
     }
 
     .hero-links {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.1rem 1.75rem;
+      gap: 0.1rem 1.6rem;
       list-style: none;
+      margin-bottom: 1.75rem;
     }
 
     .hero-links a {
@@ -171,35 +160,149 @@
 
     .hero-links a:hover { color: var(--accent); }
 
-    /* ══════════════════════════════
-       BLOCS DE CONTENU
-    ══════════════════════════════ */
-    .block { margin-bottom: 3.5rem; }
-
-    /* Label de section — Shippori + bordure gauche verte */
-    .block-label {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 0.95rem;
+    .cv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
       font-weight: 500;
+    }
+
+    .cv-link:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ══════════════════════════════
+       BLOCS COMMUNS
+    ══════════════════════════════ */
+    .block {
+      margin-bottom: 4rem;
+    }
+
+    .block-label {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--text);
-      padding-left: 0.85rem;
+      padding-left: 0.9rem;
       border-left: 2px solid var(--accent);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       line-height: 1.3;
     }
 
-    /* ── Liste de projets ── */
+    /* ══════════════════════════════
+       POSITIONNEMENT
+    ══════════════════════════════ */
+    .pos-text {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.85;
+      max-width: 600px;
+      margin-bottom: 1.25rem;
+    }
+
+    .pos-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .pos-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--accent);
+      line-height: 1.6;
+      margin: 2rem 0;
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* ══════════════════════════════
+       PARCOURS
+    ══════════════════════════════ */
+    .parcours-list {
+      list-style: none;
+    }
+
+    .parcours-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .parcours-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .parcours-period {
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .parcours-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .parcours-desc {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+
+    .parcours-highlight {
+      font-size: 0.82rem;
+      color: var(--accent-l);
+      font-style: italic;
+      margin-top: 0.3rem;
+    }
+
+    .cv-download-wrap {
+      margin-top: 2rem;
+    }
+
+    /* ══════════════════════════════
+       PROJETS
+    ══════════════════════════════ */
     .proj-list { list-style: none; }
 
     .proj {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 1rem 0;
+      padding: 0.95rem 0;
       border-bottom: 1px solid var(--border);
       gap: 1.25rem;
       text-decoration: none;
       color: inherit;
+    }
+
+    .proj:hover .proj-name { color: var(--accent); }
+
+    /* Projet principal */
+    .proj-featured {
+      padding: 1.1rem 0 1.1rem 1rem;
+      border-left: 2px solid var(--accent);
+      margin-left: -1rem;
+    }
+
+    .proj-featured .proj-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--accent);
     }
 
     .proj-left  { flex: 1; min-width: 0; }
@@ -211,18 +314,15 @@
     }
 
     .proj-name {
-      font-family: 'Figtree', sans-serif;
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 500;
       color: var(--text);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
       transition: color 0.15s;
     }
 
-    .proj:hover .proj-name { color: var(--accent); }
-
     .proj-desc {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-2);
       line-height: 1.55;
       overflow: hidden;
@@ -231,23 +331,9 @@
       -webkit-box-orient: vertical;
     }
 
-    /* Projet principal — traitement spécial */
-    .proj-main {
-      padding: 1.25rem 0 1.25rem 0.85rem;
-      border-left: 2px solid var(--accent);
-      margin-left: -0.85rem;
-    }
-
-    .proj-main .proj-name {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
     /* Badges */
     .badge {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       text-transform: uppercase;
       letter-spacing: 0.07em;
       padding: 2px 7px;
@@ -256,60 +342,167 @@
       font-weight: 500;
     }
 
-    .b-main { color: var(--accent);      border: 1px solid var(--accent);      opacity: 0.9; }
-    .b-live { color: var(--dot);         border: 1px solid var(--dot);         opacity: 0.9; }
-    .b-tag  { color: var(--text-2);      border: 1px solid var(--border); }
+    .b-main { color: var(--accent);   border: 1px solid var(--accent);   opacity: 0.85; }
+    .b-live { color: var(--dot);      border: 1px solid var(--dot);      opacity: 0.9; }
+    .b-tag  { color: var(--text-3);   border: 1px solid var(--border); }
 
-    /* ── Stack ── */
+    /* Sous-label de catégorie dans projets */
+    .proj-category {
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 1.5rem 0 0.25rem;
+      font-weight: 500;
+    }
+
+    .proj-category:first-child { margin-top: 0; }
+
+    /* ══════════════════════════════
+       TERRAIN
+    ══════════════════════════════ */
+    .terrain-text {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .terrain-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .terrain-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .terrain-link:hover { border-bottom-color: var(--accent); }
+
+    .closing-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-2);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════
+       STACK
+    ══════════════════════════════ */
     .stack-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1.75rem 2.5rem;
-      padding-top: 0.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 1.5rem 2rem;
     }
 
     .stack-label {
-      font-family: 'Shippori Mincho', serif;
+      font-family: var(--serif);
       font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--accent-soft);
+      font-weight: 600;
+      color: var(--accent-l);
       margin-bottom: 0.4rem;
     }
 
     .stack-items {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text);
       line-height: 1.9;
     }
+
+    /* ══════════════════════════════
+       CONTACT
+    ══════════════════════════════ */
+    .contact-wrap {
+      text-align: center;
+      padding: 1rem 0 2rem;
+    }
+
+    .contact-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      margin-bottom: 1.5rem;
+      transition: opacity 0.15s;
+    }
+
+    .contact-email:hover { opacity: 0.75; }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.1rem 1.4rem;
+      list-style: none;
+    }
+
+    .contact-links a {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-links a:hover { color: var(--accent); }
 
     /* ══════════════════════════════
        FOOTER
     ══════════════════════════════ */
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 0 4rem;
+      padding: 1.75rem 0 4rem;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.5rem;
-      font-size: 0.76rem;
-      color: var(--text-2);
+      font-size: 0.74rem;
+      color: var(--text-3);
+      margin-top: 2rem;
     }
 
     footer a {
-      color: var(--text-2);
+      color: var(--text-3);
       text-decoration: none;
       transition: color 0.15s;
     }
 
     footer a:hover { color: var(--accent); }
 
-    /* ── Mobile ── */
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
     @media (max-width: 600px) {
-      .wrap  { padding: 0 1.25rem; }
-      .hero  { padding: 3.5rem 0 2.5rem; }
-      .stack-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
-      .proj-right { display: none; }
+      .wrap        { padding: 0 1.25rem; }
+      .hero        { padding: 3.5rem 0 2.5rem; }
+      .hero-name   { font-size: clamp(2.8rem, 14vw, 3.5rem); }
+      .stack-grid  { grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
+      .proj-right  { display: none; }
     }
   </style>
 </head>
@@ -317,41 +510,167 @@
 <body>
 <div class="wrap">
 
-  <!-- ══ HERO ══ -->
+  <!-- ════════ HERO ════════ -->
   <header class="hero">
-    <img class="avatar" src="images/photo.jpg" alt="Siegfried Sekkai" width="100" height="100">
+    <img class="avatar" src="images/photo.jpg" alt="Siegfried Sekkai" width="108" height="108">
     <h1 class="hero-name">Siegfried Sekkai</h1>
     <p class="hero-role">DevOps &middot; SRE &middot; Cloud</p>
     <p class="hero-intro">
-      Je construis des infrastructures fiables et des outils qui servent des usages réels —
-      en entreprise comme sur le terrain.
+      Je construis des infrastructures fiables et des équipes
+      qui apprennent de leurs défaillances.
     </p>
     <p class="hero-dispo">
       <span class="dot"></span>
       Disponible CDI Cloud Engineer / DevOps / SRE — Bordeaux &amp; remote
     </p>
-    <p class="hero-network-label">Retrouvez-moi sur</p>
+    <p class="hero-links-label">Retrouvez-moi sur</p>
     <ul class="hero-links">
       <li><a href="https://linkedin.com/in/siegfried-sekkai/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="https://github.com/5136siegfried" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="mailto:siegfried.sekkai@gmail.com">Email</a></li>
+      <li><a href="https://5136fried.substack.com/" target="_blank" rel="noopener">Substack</a></li>
       <li><a href="https://csor.fr" target="_blank" rel="noopener">CSOR</a></li>
+      <li><a href="mailto:siegfried@5136.fr">Email</a></li>
     </ul>
+    <a class="cv-link" href="cv/siegfried-sekkai.pdf" download>
+      ↓ Télécharger le CV
+    </a>
   </header>
 
   <main>
 
-    <!-- ══ INFRASTRUCTURE & SRE ══ -->
-    <section class="block" aria-labelledby="lbl-sre">
-      <h2 class="block-label" id="lbl-sre">Infrastructure &amp; SRE</h2>
+    <!-- ════════ POSITIONNEMENT ════════ -->
+    <section class="block" id="positionnement" aria-labelledby="lbl-pos">
+      <h2 class="block-label" id="lbl-pos">Positionnement</h2>
+
+      <p class="pos-text">
+        J'ai travaillé dans des environnements exigeants —
+        <strong>Volkswagen, Capgemini, Skale 5 by Deloitte</strong> —
+        où j'ai appris que la fiabilité se construit autant dans la culture que dans le code.
+      </p>
+
+      <p class="pos-text">
+        Un Covid long et un diagnostic <strong>AuDHD</strong> ont tout remis à plat.
+        J'ai reconstruit — différemment, avec plus de lucidité sur ce que je fais bien et pourquoi.
+        Aujourd'hui je cherche une structure qui sait que la diversité cognitive n'est pas
+        un effort d'inclusion. C'est un avantage d'ingénierie.
+      </p>
+
+      <blockquote class="pos-quote">
+        Mon second prénom est Alexandre.<br>
+        Mais je résouds les problématiques par la paix.
+      </blockquote>
+
+      <p class="pos-text">
+        Je suis <strong>blameless par conviction</strong> : une défaillance est une responsabilité
+        collective et une source d'apprentissage. Pas une faute à attribuer.
+        C'est ma pratique SRE, ma pratique d'équipe, ma pratique de vie.
+      </p>
+    </section>
+
+        <!-- ════════ STACK ════════ -->
+    <section class="block" id="stack" aria-labelledby="lbl-stack">
+      <h2 class="block-label" id="lbl-stack">Stack</h2>
+      <div class="stack-grid">
+        <div>
+          <p class="stack-label">Cloud</p>
+          <p class="stack-items">AWS · GCP · Azure<br>OVH · Terraform · IaC</p>
+        </div>
+        <div>
+          <p class="stack-label">Containers &amp; CI</p>
+          <p class="stack-items">Docker · Kubernetes<br>GitHub Actions · GitLab CI</p>
+        </div>
+        <div>
+          <p class="stack-label">Observabilité</p>
+          <p class="stack-items">Prometheus · Grafana<br>ELK · Datadog · CloudWatch</p>
+        </div>
+        <div>
+          <p class="stack-label">Code &amp; scripts</p>
+          <p class="stack-items">Bash · Python · Ansible<br>C# · JavaScript · React</p>
+        </div>
+        <div>
+          <p class="stack-label">Sécurité</p>
+          <p class="stack-items">Google Cybersecurity Cert.<br>OWASP · SSH hardening<br>Audit &amp; remédiation</p>
+        </div>
+        <div>
+          <p class="stack-label">Langues</p>
+          <p class="stack-items">Français · Anglais<br>Allemand · Espagnol (B1)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ PARCOURS ════════ -->
+    <section class="block" id="parcours" aria-labelledby="lbl-parcours">
+      <h2 class="block-label" id="lbl-parcours">Parcours</h2>
+
+      <ul class="parcours-list">
+
+        <li class="parcours-item">
+          <p class="parcours-period">2017 – 2023</p>
+          <p class="parcours-title">Grands groupes — QA, Cloud, SRE</p>
+          <p class="parcours-desc">
+            Sogeti / Capgemini, Volkswagen Wolfsburg (expatrié), Skale 5 by Deloitte.
+            Tests de charge, infrastructures cloud critiques, industrialisation CI/CD.
+            Clients : NRJ, AFPA, Pierre Ricard, Bureau Vallée, L'Équipe, Adeo.
+          </p>
+          <p class="parcours-highlight">
+            NRJ Music Awards — scaling sous astreinte, zéro incident, SLA dépassé.<br>
+            Projet Orion — audit de 45 instances GitLab, +500 000€ de facturation récupérée.<br>
+            Remédiation sécurité critique — coordination CNIL et ministère du Travail, posture blameless.
+          </p>
+        </li>
+
+        <li class="parcours-item">
+          <p class="parcours-period">2023 – 2024</p>
+          <p class="parcours-title">Pivot</p>
+          <p class="parcours-desc">
+            Covid long, diagnostic AuDHD. Une vie reconstruite avec plus de lucidité
+            sur mes forces réelles — et sur les organisations qui savent les utiliser.
+            Co-fondateur d'Hygiecare, une EdTech de secourisme validée par la BPI,
+            suspendue pour divergences éthiques.
+          </p>
+        </li>
+
+        <li class="parcours-item">
+          <p class="parcours-period">2023 – présent</p>
+          <p class="parcours-title">Freelance & open source — Infrasculptor</p>
+          <p class="parcours-desc">
+            Maintenance, performance, automatisation pour des PME et associations bordelaises.
+            Déploiements K8s, IaC Terraform sur AWS / GCP / OVH.
+            Des outils qui tiennent, pour des gens qui ont peu de moyens.
+          </p>
+        </li>
+
+        <li class="parcours-item">
+          <p class="parcours-period">En parallèle</p>
+          <p class="parcours-title">Pulsation Pro — auditeur inclusion & neurodivergence</p>
+          <p class="parcours-desc">
+            En coordination avec Cap Emploi et l'APEC, j'accompagne des entreprises
+            dans l'évaluation de leur organisation et de leur politique d'inclusion,
+            en tant que RQTH. Parce que l'inclusion se mesure, s'audite et s'améliore.
+          </p>
+        </li>
+
+      </ul>
+
+      <div class="cv-download-wrap">
+        <a class="cv-link" href="cv/siegfried-sekkai.pdf" download>↓ CV complet (PDF)</a>
+      </div>
+    </section>
+
+    <!-- ════════ PROJETS ════════ -->
+    <section class="block" id="projets" aria-labelledby="lbl-projets">
+      <h2 class="block-label" id="lbl-projets">Projets</h2>
+
       <ul class="proj-list">
 
-        <!-- Projet principal -->
+        <!-- SRE — principal -->
+        <p class="proj-category">Infrastructure &amp; SRE</p>
+
         <li>
-          <a class="proj proj-main" href="https://github.com/5136siegfried/SRE-good-practice" target="_blank" rel="noopener">
+          <a class="proj proj-featured" href="https://github.com/5136siegfried/SRE-good-practices" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">SRE Good Practice</p>
-              <p class="proj-desc">Mon référentiel de fiabilité — SLO / runbooks / post-mortems / culture on-call. En construction continue, usage réel.</p>
+              <p class="proj-desc">Mon référentiel de fiabilité — SLO, runbooks, post-mortems blameless, culture on-call. En construction continue, usage réel.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-main">principal</span>
@@ -364,7 +683,7 @@
           <a class="proj" href="https://github.com/5136siegfried/vps-gitops-ovh" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">VPS GitOps OVH</p>
-              <p class="proj-desc">Runbook sécurisation VPS — nginx, Docker, TLS automatisé, hardening SSH, pipeline GitOps minimaliste.</p>
+              <p class="proj-desc">Runbook sécurisation VPS — nginx, Docker, TLS automatisé, hardening SSH.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-tag">Nginx</span>
@@ -378,7 +697,7 @@
           <a class="proj" href="https://github.com/5136siegfried/distributed-jmeter-ansible" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">Distributed JMeter Ansible</p>
-              <p class="proj-desc">Runbook pour un cluster JMeter distribué — tests de charge reproductibles et automatisés.</p>
+              <p class="proj-desc">Cluster de tests de charge distribué, reproductible et automatisé.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-tag">Ansible</span>
@@ -391,7 +710,7 @@
           <a class="proj" href="https://github.com/5136siegfried/malus-maladat" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">Malus Maladat</p>
-              <p class="proj-desc">Inventaire et audit de ressources AWS — cartographie d'environnement, détection de drift, conformité.</p>
+              <p class="proj-desc">Inventaire et audit de ressources AWS — drift, conformité, FinOps.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-tag">AWS</span>
@@ -400,13 +719,8 @@
           </a>
         </li>
 
-      </ul>
-    </section>
-
-    <!-- ══ OUTILS ══ -->
-    <section class="block" aria-labelledby="lbl-tools">
-      <h2 class="block-label" id="lbl-tools">Outils &amp; plateformes</h2>
-      <ul class="proj-list">
+        <!-- Outils -->
+        <p class="proj-category">Outils &amp; plateformes</p>
 
         <li>
           <a class="proj" href="https://github.com/5136siegfried/cv-terminal" target="_blank" rel="noopener">
@@ -425,7 +739,7 @@
           <a class="proj" href="https://github.com/5136siegfried/latex-cv" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">LaTeX CV</p>
-              <p class="proj-desc">Générateur de CV en LaTeX — template modulaire, compilable en CI, sortie PDF versionnée.</p>
+              <p class="proj-desc">Générateur de CV modulaire en LaTeX — compilable en CI, sortie PDF versionnée.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-tag">LaTeX</span>
@@ -438,7 +752,7 @@
           <a class="proj" href="https://github.com/5136siegfried/jobtracker-devops" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">Job Tracker DevOps</p>
-              <p class="proj-desc">Dashboard de suivi de prospection freelance et recherche CDI — statuts, relances, pipeline.</p>
+              <p class="proj-desc">Dashboard de suivi de prospection CDI / freelance — statuts, relances, pipeline.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-tag">Dashboard</span>
@@ -450,7 +764,7 @@
           <a class="proj" href="https://chrono.5136.fr" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">Chrono</p>
-              <p class="proj-desc">Timer minimaliste pour le sport et les sessions de concentration — interval, Pomodoro, compte à rebours.</p>
+              <p class="proj-desc">Timer minimaliste — sport, Pomodoro, sessions de concentration.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-live">live</span>
@@ -459,13 +773,8 @@
           </a>
         </li>
 
-      </ul>
-    </section>
-
-    <!-- ══ ACTION SOCIALE ══ -->
-    <section class="block" aria-labelledby="lbl-terrain">
-      <h2 class="block-label" id="lbl-terrain">Action sociale &amp; terrain</h2>
-      <ul class="proj-list">
+        <!-- Action sociale -->
+        <p class="proj-category">Action sociale &amp; terrain</p>
 
         <li>
           <a class="proj" href="https://github.com/5136siegfried/come-together" target="_blank" rel="noopener">
@@ -484,7 +793,7 @@
           <a class="proj" href="https://maraude.5136.fr" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">Maraude Dashboard</p>
-              <p class="proj-desc">Dashboard de pilotage des opérations de rue — planning, équipes, statistiques terrain.</p>
+              <p class="proj-desc">Pilotage des opérations de rue — planning, équipes, statistiques terrain.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-live">live</span>
@@ -508,7 +817,7 @@
           <a class="proj" href="https://github.com/5136siegfried/csor-gestion" target="_blank" rel="noopener">
             <div class="proj-left">
               <p class="proj-name">CSOR Gestion</p>
-              <p class="proj-desc">Documentation de gouvernance horizontale — processus décisionnels, rôles sans hiérarchie formelle.</p>
+              <p class="proj-desc">Documentation de gouvernance horizontale — processus, rôles, décisions sans hiérarchie formelle.</p>
             </div>
             <div class="proj-right">
               <span class="badge b-tag">Gouvernance</span>
@@ -528,13 +837,8 @@
           </a>
         </li>
 
-      </ul>
-    </section>
-
-    <!-- ══ EXPÉRIMENTAL ══ -->
-    <section class="block" aria-labelledby="lbl-exp">
-      <h2 class="block-label" id="lbl-exp">Expérimental</h2>
-      <ul class="proj-list">
+        <!-- Expérimental -->
+        <p class="proj-category">Expérimental</p>
 
         <li>
           <a class="proj" href="https://github.com/5136siegfried/chess-py" target="_blank" rel="noopener">
@@ -552,34 +856,65 @@
       </ul>
     </section>
 
-    <!-- ══ STACK ══ -->
-    <section class="block" aria-labelledby="lbl-stack">
-      <h2 class="block-label" id="lbl-stack">Stack</h2>
-      <div class="stack-grid">
-        <div>
-          <p class="stack-label">Cloud</p>
-          <p class="stack-items">AWS · GCP · Azure<br>OVH · Terraform · IaC</p>
-        </div>
-        <div>
-          <p class="stack-label">Containers &amp; CI</p>
-          <p class="stack-items">Docker · Kubernetes<br>GitHub Actions · GitLab CI</p>
-        </div>
-        <div>
-          <p class="stack-label">Observabilité</p>
-          <p class="stack-items">Prometheus · Grafana<br>ELK · Datadog</p>
-        </div>
-        <div>
-          <p class="stack-label">Code &amp; scripts</p>
-          <p class="stack-items">Bash · Python · Ansible<br>C# · JavaScript</p>
-        </div>
-        <div>
-          <p class="stack-label">Sécurité</p>
-          <p class="stack-items">Google Cybersecurity Cert.<br>OWASP · SSH hardening</p>
-        </div>
-        <div>
-          <p class="stack-label">Langues</p>
-          <p class="stack-items">Français · Anglais<br>Allemand · Espagnol (B1)</p>
-        </div>
+
+
+    <!-- ════════ TERRAIN ════════ -->
+    <section class="block" id="terrain" aria-labelledby="lbl-terrain">
+      <h2 class="block-label" id="lbl-terrain">Terrain &amp; engagement</h2>
+
+      <p class="terrain-text">
+        Je coordonne le <strong>CSOR</strong>, une association de street outreach à Bordeaux —
+        50 bénévoles, 3 à 4 maraudes par semaine, plus de 1 000 personnes suivies,
+        400 soins par an. Je développe des outils open source pour les associations
+        de solidarité locales parce que les gens qui ont le moins méritent
+        des outils qui fonctionnent.
+      </p>
+
+      <p class="terrain-text">
+        Je suis <strong>professeur de tir à l'arc</strong> et
+        <strong>facilitateur de gouvernance horizontale</strong>.
+        La même posture partout : créer les conditions pour que les gens
+        fonctionnent bien ensemble.
+      </p>
+
+      <p class="terrain-text">
+        Via <strong>Pulsation Pro</strong>, en coordination avec Cap Emploi et l'APEC,
+        j'évalue et conseille des entreprises sur leur politique d'inclusion
+        et leur organisation — en tant que RQTH.
+        L'inclusion ne se décrète pas. Elle s'audite.
+      </p>
+
+      <p class="terrain-text">
+        J'écris sur le monde associatif, la gouvernance, la tech et la politique
+        sur mon Substack — des takes, des études de cas, un dossier en cours
+        sur l'histoire du mouvement associatif français.
+        <br>
+        <a class="terrain-link" href="https://5136fried.substack.com/" target="_blank" rel="noopener">
+          → 5136fried.substack.com
+        </a>
+      </p>
+
+      <p class="closing-quote">
+        « La fiabilité est le fruit d'un savoir partagé.<br>
+        La résilience, celle d'un chemin parcouru ensemble. »
+      </p>
+    </section>
+
+    <!-- ════════ CONTACT ════════ -->
+    <section class="block" id="contact" aria-labelledby="lbl-contact">
+      <h2 class="block-label" id="lbl-contact">Contact</h2>
+      <div class="contact-wrap">
+        <p class="contact-sub">
+          Une mission, un projet, une conversation sur la culture SRE<br>
+          ou la gouvernance d'équipe — je suis prenable.
+        </p>
+        <a class="contact-email" href="mailto:siegfried@5136.fr">siegfried@5136.fr</a>
+        <ul class="contact-links">
+          <li><a href="https://linkedin.com/in/siegfried-sekkai/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/5136siegfried" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://5136fried.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="cv/siegfried-sekkai.pdf" download>CV PDF</a></li>
+        </ul>
       </div>
     </section>
 
