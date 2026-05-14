@@ -5,295 +5,333 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siegfried Sekkai — DevOps & SRE</title>
   <meta name="description" content="Portfolio DevOps / SRE — infrastructure, fiabilité, outils terrain. Disponible pour un CDI Cloud Engineer.">
-  <meta name="keywords" content="DevOps, SRE, Cloud, AWS, GCP, Azure, Docker, Ansible, Terraform, Bordeaux">
   <meta property="og:title" content="Siegfried Sekkai — DevOps & SRE">
   <meta property="og:description" content="Portfolio DevOps / SRE — infrastructure, fiabilité, outils terrain.">
   <meta property="og:url" content="https://5136.fr">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://5136.fr/images/photo.png">
+  <meta property="og:image" content="https://5136.fr/images/photo.jpg">
   <link rel="canonical" href="https://5136.fr">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* ─── Tokens ─── */
     :root {
-      --bg:         #f0ede7;
-      --text:       #1d1b17;
-      --text-2:     #72695e;
-      --border:     #d8d2c9;
-      --accent:     #8b5e3c;
-      --tag-border: #c8c1b6;
-      --dot-ok:     #5b9e6e;
+      --bg:          #f5f1e8;
+      --bg-subtle:   #ede9df;
+      --text:        #1c1a15;
+      --text-2:      #5c5548;
+      --border:      #dbd5c8;
+      --accent:      #4a5e4a;
+      --accent-soft: #6b826b;
+      --dot:         #5b9e6e;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg:         #1a1816;
-        --text:       #e6e1d9;
-        --text-2:     #8a8177;
-        --border:     #2e2b26;
-        --accent:     #c4895a;
-        --tag-border: #3a3731;
+        --bg:          #111009;
+        --bg-subtle:   #191710;
+        --text:        #e4dfd4;
+        --text-2:      #857d70;
+        --border:      #272420;
+        --accent:      #7a9e7a;
+        --accent-soft: #5a7a5a;
+        --dot:         #5b9e6e;
       }
     }
 
+    /* ─── Reset ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; }
+
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Figtree', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 700px;
+    .wrap {
+      max-width: 680px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
+    /* ─── Animations ─── */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .hero                     { animation: fadeUp 0.55s ease both; }
-      .section                  { animation: fadeUp 0.55s ease both; }
-      .section:nth-child(1)     { animation-delay: 0.10s; }
-      .section:nth-child(2)     { animation-delay: 0.17s; }
-      .section:nth-child(3)     { animation-delay: 0.24s; }
-      .section:nth-child(4)     { animation-delay: 0.31s; }
-      .section:nth-child(5)     { animation-delay: 0.38s; }
+      .hero                 { animation: rise 0.6s ease both; }
+      .block                { animation: rise 0.6s ease both; }
+      .block:nth-child(1)   { animation-delay: 0.08s; }
+      .block:nth-child(2)   { animation-delay: 0.14s; }
+      .block:nth-child(3)   { animation-delay: 0.20s; }
+      .block:nth-child(4)   { animation-delay: 0.26s; }
+      .block:nth-child(5)   { animation-delay: 0.32s; }
     }
 
-    /* ── HERO ── */
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
     .hero {
       text-align: center;
-      padding: 4.5rem 0 3rem;
-      border-bottom: 0.5px solid var(--border);
-      margin-bottom: 3rem;
+      padding: 5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4rem;
     }
 
-    .avatar-wrap { margin-bottom: 1.75rem; }
-
     .avatar {
-      width: 96px;
-      height: 96px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      display: inline-block;
-      border: 0.5px solid var(--border);
+      display: block;
+      margin: 0 auto 2rem;
+      border: 1px solid var(--border);
     }
 
     .hero-name {
-      font-family: 'Cormorant', serif;
-      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(3rem, 9vw, 5rem);
       font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin-bottom: 0.55rem;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      color: var(--text);
     }
 
     .hero-role {
-      font-size: 0.72rem;
-      letter-spacing: 0.13em;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--text-2);
       font-weight: 400;
-      margin-bottom: 1.75rem;
+      margin-bottom: 2rem;
     }
 
     .hero-intro {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--text-2);
-      max-width: 430px;
-      margin: 0 auto 1rem;
-      line-height: 1.8;
+      max-width: 400px;
+      margin: 0 auto 1.25rem;
+      line-height: 1.85;
+      text-wrap: pretty;
     }
 
-    .hero-availability {
+    .hero-dispo {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.78rem;
-      color: var(--text-2);
-      margin-bottom: 2rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 2.25rem;
+      font-weight: 500;
     }
 
     .dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--dot-ok);
+      background: var(--dot);
       flex-shrink: 0;
     }
 
-    .hero-networks-label {
-      font-size: 0.67rem;
+    .hero-network-label {
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       color: var(--text-2);
-      margin-bottom: 0.7rem;
-      opacity: 0.65;
+      margin-bottom: 0.75rem;
+      opacity: 0.6;
     }
 
-    .links {
+    .hero-links {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.15rem 1.5rem;
+      gap: 0.1rem 1.75rem;
       list-style: none;
     }
 
-    .links a {
-      font-size: 0.875rem;
+    .hero-links a {
+      font-size: 0.9rem;
       color: var(--text-2);
       text-decoration: none;
-      padding-bottom: 1px;
-      border-bottom: 0.5px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      transition: color 0.2s;
     }
 
-    .links a:hover {
-      color: var(--text);
-      border-bottom-color: var(--border);
-    }
+    .hero-links a:hover { color: var(--accent); }
 
-    /* ── SECTIONS ── */
-    .section { margin-bottom: 3rem; }
+    /* ══════════════════════════════
+       BLOCS DE CONTENU
+    ══════════════════════════════ */
+    .block { margin-bottom: 3.5rem; }
 
-    .section-label {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-2);
+    /* Label de section — Shippori + bordure gauche verte */
+    .block-label {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.95rem;
       font-weight: 500;
-      padding-bottom: 0.65rem;
-      border-bottom: 0.5px solid var(--border);
-      margin-bottom: 0;
+      color: var(--text);
+      padding-left: 0.85rem;
+      border-left: 2px solid var(--accent);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
     }
 
-    .project-list { list-style: none; }
+    /* ── Liste de projets ── */
+    .proj-list { list-style: none; }
 
-    .project {
+    .proj {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 0.9rem 0;
-      border-bottom: 0.5px solid var(--border);
-      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      gap: 1.25rem;
       text-decoration: none;
       color: inherit;
     }
 
-    .project:hover .proj-name { color: var(--accent); }
-
     .proj-left  { flex: 1; min-width: 0; }
-    .proj-right { display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0; }
+    .proj-right {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-shrink: 0;
+    }
 
     .proj-name {
-      font-size: 0.95rem;
+      font-family: 'Figtree', sans-serif;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--text);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
       transition: color 0.15s;
     }
 
+    .proj:hover .proj-name { color: var(--accent); }
+
     .proj-desc {
-      font-size: 0.83rem;
+      font-size: 0.85rem;
       color: var(--text-2);
-      line-height: 1.5;
+      line-height: 1.55;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
 
+    /* Projet principal — traitement spécial */
+    .proj-main {
+      padding: 1.25rem 0 1.25rem 0.85rem;
+      border-left: 2px solid var(--accent);
+      margin-left: -0.85rem;
+    }
+
+    .proj-main .proj-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Badges */
     .badge {
       font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 2px 6px;
+      letter-spacing: 0.07em;
+      padding: 2px 7px;
       border-radius: 2px;
       white-space: nowrap;
-    }
-
-    .badge-main { color: var(--accent);  border: 0.5px solid var(--accent);  opacity: 0.85; }
-    .badge-live { color: var(--dot-ok);  border: 0.5px solid var(--dot-ok);  opacity: 0.85; }
-    .badge-tag  { color: var(--text-2);  border: 0.5px solid var(--tag-border); }
-
-    /* ── STACK ── */
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-      gap: 1.5rem 2rem;
-      padding-top: 1.1rem;
-    }
-
-    .stack-group-label {
-      font-size: 0.67rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-2);
-      margin-bottom: 0.3rem;
       font-weight: 500;
     }
 
+    .b-main { color: var(--accent);      border: 1px solid var(--accent);      opacity: 0.9; }
+    .b-live { color: var(--dot);         border: 1px solid var(--dot);         opacity: 0.9; }
+    .b-tag  { color: var(--text-2);      border: 1px solid var(--border); }
+
+    /* ── Stack ── */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.75rem 2.5rem;
+      padding-top: 0.25rem;
+    }
+
+    .stack-label {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent-soft);
+      margin-bottom: 0.4rem;
+    }
+
     .stack-items {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text);
       line-height: 1.9;
     }
 
-    /* ── FOOTER ── */
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
     footer {
-      border-top: 0.5px solid var(--border);
-      padding: 1.75rem 0 3.5rem;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 4rem;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.5rem;
       font-size: 0.76rem;
       color: var(--text-2);
-      margin-top: 1rem;
     }
 
-    footer a { color: var(--text-2); text-decoration: none; transition: color 0.15s; }
-    footer a:hover { color: var(--text); }
+    footer a {
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
 
+    footer a:hover { color: var(--accent); }
+
+    /* ── Mobile ── */
     @media (max-width: 600px) {
-      .container { padding: 0 1.25rem; }
-      .hero { padding: 3rem 0 2.5rem; }
-      .stack-grid { grid-template-columns: 1fr 1fr; }
+      .wrap  { padding: 0 1.25rem; }
+      .hero  { padding: 3.5rem 0 2.5rem; }
+      .stack-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
       .proj-right { display: none; }
     }
   </style>
 </head>
-<body>
-<div class="container">
 
+<body>
+<div class="wrap">
+
+  <!-- ══ HERO ══ -->
   <header class="hero">
-    <div class="avatar-wrap">
-      <img class="avatar" src="images/photo.png" alt="Siegfried Sekkai" width="96" height="96">
-    </div>
+    <img class="avatar" src="images/photo.jpg" alt="Siegfried Sekkai" width="100" height="100">
     <h1 class="hero-name">Siegfried Sekkai</h1>
-    <p class="hero-role">DevOps · SRE · Cloud</p>
+    <p class="hero-role">DevOps &middot; SRE &middot; Cloud</p>
     <p class="hero-intro">
       Je construis des infrastructures fiables et des outils qui servent des usages réels —
       en entreprise comme sur le terrain.
     </p>
-    <p class="hero-availability">
+    <p class="hero-dispo">
       <span class="dot"></span>
-      Disponible pour un CDI Cloud Engineer / DevOps / SRE — Bordeaux &amp; remote
+      Disponible CDI Cloud Engineer / DevOps / SRE — Bordeaux &amp; remote
     </p>
-    <p class="hero-networks-label">Retrouvez-moi sur</p>
-    <ul class="links">
+    <p class="hero-network-label">Retrouvez-moi sur</p>
+    <ul class="hero-links">
       <li><a href="https://linkedin.com/in/siegfried-sekkai/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="https://github.com/5136siegfried" target="_blank" rel="noopener">GitHub</a></li>
       <li><a href="mailto:siegfried.sekkai@gmail.com">Email</a></li>
@@ -303,153 +341,243 @@
 
   <main>
 
-    <section class="section" aria-labelledby="lbl-sre">
-      <p class="section-label" id="lbl-sre">Infrastructure &amp; SRE</p>
-      <ul class="project-list">
-        <li><a class="project" href="https://github.com/5136siegfried/SRE-good-practice" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">SRE Good Practice</p>
-            <p class="proj-desc">Mon référentiel SLO / runbooks / post-mortems / culture on-call — en construction continue, usage réel.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-main">principal</span><span class="badge badge-tag">SRE</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/vps-gitops-ovh" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">VPS GitOps OVH</p>
-            <p class="proj-desc">Runbook sécurisation VPS OVH — nginx, Docker, TLS automatisé, hardening SSH, pipeline GitOps minimaliste.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">Nginx</span><span class="badge badge-tag">Docker</span><span class="badge badge-tag">Security</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/distributed-jmeter-ansible" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Distributed JMeter Ansible</p>
-            <p class="proj-desc">Runbook Ansible pour un cluster JMeter distribué — tests de charge reproductibles et automatisés.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">Ansible</span><span class="badge badge-tag">Load testing</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/malus-maladat" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Malus Maladat</p>
-            <p class="proj-desc">Inventaire et audit de ressources AWS — cartographie d'environnement, détection de drift, conformité.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">AWS</span><span class="badge badge-tag">Compliance</span></div>
-        </a></li>
+    <!-- ══ INFRASTRUCTURE & SRE ══ -->
+    <section class="block" aria-labelledby="lbl-sre">
+      <h2 class="block-label" id="lbl-sre">Infrastructure &amp; SRE</h2>
+      <ul class="proj-list">
+
+        <!-- Projet principal -->
+        <li>
+          <a class="proj proj-main" href="https://github.com/5136siegfried/SRE-good-practice" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">SRE Good Practice</p>
+              <p class="proj-desc">Mon référentiel de fiabilité — SLO / runbooks / post-mortems / culture on-call. En construction continue, usage réel.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-main">principal</span>
+              <span class="badge b-tag">SRE</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/vps-gitops-ovh" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">VPS GitOps OVH</p>
+              <p class="proj-desc">Runbook sécurisation VPS — nginx, Docker, TLS automatisé, hardening SSH, pipeline GitOps minimaliste.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">Nginx</span>
+              <span class="badge b-tag">Docker</span>
+              <span class="badge b-tag">Security</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/distributed-jmeter-ansible" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Distributed JMeter Ansible</p>
+              <p class="proj-desc">Runbook pour un cluster JMeter distribué — tests de charge reproductibles et automatisés.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">Ansible</span>
+              <span class="badge b-tag">Load testing</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/malus-maladat" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Malus Maladat</p>
+              <p class="proj-desc">Inventaire et audit de ressources AWS — cartographie d'environnement, détection de drift, conformité.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">AWS</span>
+              <span class="badge b-tag">Compliance</span>
+            </div>
+          </a>
+        </li>
+
       </ul>
     </section>
 
-    <section class="section" aria-labelledby="lbl-tools">
-      <p class="section-label" id="lbl-tools">Outils &amp; plateformes</p>
-      <ul class="project-list">
-        <li><a class="project" href="https://github.com/5136siegfried/cv-terminal" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">CV Terminal</p>
-            <p class="proj-desc">Mon CV sous forme d'invite de commande interactive — parce qu'un PDF c'est fade.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">JS</span><span class="badge badge-tag">CLI</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/latex-cv" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">LaTeX CV</p>
-            <p class="proj-desc">Générateur de CV en LaTeX — template modulaire, compilable en CI, sortie PDF versionnée.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">LaTeX</span><span class="badge badge-tag">CI/CD</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/jobtracker-devops" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Job Tracker DevOps</p>
-            <p class="proj-desc">Dashboard de suivi de prospection freelance et recherche CDI — statuts, relances, pipeline.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">Dashboard</span></div>
-        </a></li>
-        <li><a class="project" href="https://chrono.5136.fr" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Chrono</p>
-            <p class="proj-desc">Timer minimaliste pour le sport et les sessions de concentration — interval, Pomodoro, compte à rebours.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-live">live</span><span class="badge badge-tag">Web app</span></div>
-        </a></li>
+    <!-- ══ OUTILS ══ -->
+    <section class="block" aria-labelledby="lbl-tools">
+      <h2 class="block-label" id="lbl-tools">Outils &amp; plateformes</h2>
+      <ul class="proj-list">
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/cv-terminal" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">CV Terminal</p>
+              <p class="proj-desc">Mon CV sous forme d'invite de commande interactive — parce qu'un PDF c'est fade.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">JS</span>
+              <span class="badge b-tag">CLI</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/latex-cv" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">LaTeX CV</p>
+              <p class="proj-desc">Générateur de CV en LaTeX — template modulaire, compilable en CI, sortie PDF versionnée.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">LaTeX</span>
+              <span class="badge b-tag">CI/CD</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/jobtracker-devops" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Job Tracker DevOps</p>
+              <p class="proj-desc">Dashboard de suivi de prospection freelance et recherche CDI — statuts, relances, pipeline.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">Dashboard</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://chrono.5136.fr" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Chrono</p>
+              <p class="proj-desc">Timer minimaliste pour le sport et les sessions de concentration — interval, Pomodoro, compte à rebours.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-live">live</span>
+              <span class="badge b-tag">Web app</span>
+            </div>
+          </a>
+        </li>
+
       </ul>
     </section>
 
-    <section class="section" aria-labelledby="lbl-social">
-      <p class="section-label" id="lbl-social">Action sociale &amp; terrain</p>
-      <ul class="project-list">
-        <li><a class="project" href="https://github.com/5136siegfried/come-together" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Come Together</p>
-            <p class="proj-desc">Application React + MongoDB pour la gestion de maraudes et le suivi médical de terrain.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">React</span><span class="badge badge-tag">MongoDB</span></div>
-        </a></li>
-        <li><a class="project" href="https://maraude.5136.fr" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Maraude Dashboard</p>
-            <p class="proj-desc">Dashboard de pilotage des opérations de rue — planning, équipes, statistiques terrain.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-live">live</span></div>
-        </a></li>
-        <li><a class="project" href="https://csor.fr" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">CSOR</p>
-            <p class="proj-desc">Site de l'association — street outreach, ressources, coordination bénévoles.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-live">live</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/csor-gestion" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">CSOR Gestion</p>
-            <p class="proj-desc">Documentation de gouvernance horizontale — processus décisionnels, rôles sans hiérarchie formelle.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">Gouvernance</span></div>
-        </a></li>
-        <li><a class="project" href="https://github.com/5136siegfried/hestia" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Hestia</p>
-            <p class="proj-desc">Ressources contre les expulsions — droit au logement, veille juridique, protocoles d'urgence.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">Urgence</span></div>
-        </a></li>
+    <!-- ══ ACTION SOCIALE ══ -->
+    <section class="block" aria-labelledby="lbl-terrain">
+      <h2 class="block-label" id="lbl-terrain">Action sociale &amp; terrain</h2>
+      <ul class="proj-list">
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/come-together" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Come Together</p>
+              <p class="proj-desc">Application React + MongoDB pour la gestion de maraudes et le suivi médical de terrain.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">React</span>
+              <span class="badge b-tag">MongoDB</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://maraude.5136.fr" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Maraude Dashboard</p>
+              <p class="proj-desc">Dashboard de pilotage des opérations de rue — planning, équipes, statistiques terrain.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-live">live</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://csor.fr" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">CSOR</p>
+              <p class="proj-desc">Site de l'association — street outreach, ressources, coordination bénévoles.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-live">live</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/csor-gestion" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">CSOR Gestion</p>
+              <p class="proj-desc">Documentation de gouvernance horizontale — processus décisionnels, rôles sans hiérarchie formelle.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">Gouvernance</span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/hestia" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Hestia</p>
+              <p class="proj-desc">Ressources contre les expulsions — droit au logement, veille juridique, protocoles d'urgence.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">Urgence</span>
+            </div>
+          </a>
+        </li>
+
       </ul>
     </section>
 
-    <section class="section" aria-labelledby="lbl-exp">
-      <p class="section-label" id="lbl-exp">Expérimental</p>
-      <ul class="project-list">
-        <li><a class="project" href="https://github.com/5136siegfried/chess-py" target="_blank" rel="noopener">
-          <div class="proj-left">
-            <p class="proj-name">Chess-py</p>
-            <p class="proj-desc">Serveur d'échecs en Python — moteur de jeu, API WebSocket, interface minimaliste en réseau local.</p>
-          </div>
-          <div class="proj-right"><span class="badge badge-tag">Python</span><span class="badge badge-tag">WebSocket</span></div>
-        </a></li>
+    <!-- ══ EXPÉRIMENTAL ══ -->
+    <section class="block" aria-labelledby="lbl-exp">
+      <h2 class="block-label" id="lbl-exp">Expérimental</h2>
+      <ul class="proj-list">
+
+        <li>
+          <a class="proj" href="https://github.com/5136siegfried/chess-py" target="_blank" rel="noopener">
+            <div class="proj-left">
+              <p class="proj-name">Chess-py</p>
+              <p class="proj-desc">Serveur d'échecs en Python — moteur de jeu, API WebSocket, interface minimaliste en réseau local.</p>
+            </div>
+            <div class="proj-right">
+              <span class="badge b-tag">Python</span>
+              <span class="badge b-tag">WebSocket</span>
+            </div>
+          </a>
+        </li>
+
       </ul>
     </section>
 
-    <section class="section" aria-labelledby="lbl-stack">
-      <p class="section-label" id="lbl-stack">Stack</p>
+    <!-- ══ STACK ══ -->
+    <section class="block" aria-labelledby="lbl-stack">
+      <h2 class="block-label" id="lbl-stack">Stack</h2>
       <div class="stack-grid">
         <div>
-          <p class="stack-group-label">Cloud</p>
+          <p class="stack-label">Cloud</p>
           <p class="stack-items">AWS · GCP · Azure<br>OVH · Terraform · IaC</p>
         </div>
         <div>
-          <p class="stack-group-label">Containers &amp; CI</p>
+          <p class="stack-label">Containers &amp; CI</p>
           <p class="stack-items">Docker · Kubernetes<br>GitHub Actions · GitLab CI</p>
         </div>
         <div>
-          <p class="stack-group-label">Observabilité</p>
+          <p class="stack-label">Observabilité</p>
           <p class="stack-items">Prometheus · Grafana<br>ELK · Datadog</p>
         </div>
         <div>
-          <p class="stack-group-label">Code &amp; scripts</p>
+          <p class="stack-label">Code &amp; scripts</p>
           <p class="stack-items">Bash · Python · Ansible<br>C# · JavaScript</p>
         </div>
         <div>
-          <p class="stack-group-label">Sécurité</p>
+          <p class="stack-label">Sécurité</p>
           <p class="stack-items">Google Cybersecurity Cert.<br>OWASP · SSH hardening</p>
         </div>
         <div>
-          <p class="stack-group-label">Langues</p>
+          <p class="stack-label">Langues</p>
           <p class="stack-items">Français · Anglais<br>Allemand · Espagnol (B1)</p>
         </div>
       </div>
